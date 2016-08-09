@@ -7,7 +7,11 @@
 # Imports
 
 # Body
-
+f = open("words.txt")
+str_1 = f.read().split()
+for i in str_1:
+    if len(i) > 20:
+        print(i)
 
 ##############################################################################
 def main():
