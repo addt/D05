@@ -12,21 +12,66 @@ def even_odd():
         Prints determination
         returns None
     """
-    pass
+    while(True):
+        try:
+            user_input = int(input("Enter a no"))
+            if (user_input % 2 == 0):
+                print("Is even")
+                break
+            else:
+                print("Odd")
+                break
+        except:
+            print("Must be a no")
 
 
 def ten_by_ten():
     """ Prints integers 1 through 100 sequentially in a ten by ten grid."""
-    pass
+    list = []
+    chain = " "
+    for i in range (1,101):
+        if i % 10 == 0:
+            list = list + [i]
+            for j in list:
+                if i < 11:
+                    chain = chain + str(j) + "  " 
+                else:
+                    chain = chain + " " + str(j)
+            print(chain)
+            chain = ""
+            list = []
+        else:
+            list = list + [i]
 
+
+def cal_avg(lst):
+    total = 0
+    count = 0
+    for i in lst:
+        total += i
+        count += 1
+    print(total/count)
+        
 
 def find_average():
     """ Takes numeric input (non-word numerals) from the user, one number
     at a time. Once the user types 'done', returns the average.
     """
-    pass
-
-
+    lst_i = []
+    while(True):
+        try:
+            user_input = input("Enter nos to be added")
+            if user_input == 'done':
+                cal_avg(lst_i)
+                break
+            else:
+                lst_i = lst_i + [int(user_input)]
+        except ZeroDivisionError as err:
+            print("0")
+            break
+        except Exception as e:
+            print(e)
+            
 ##############################################################################
 def main():
     """ Calls the following functions:
@@ -35,7 +80,9 @@ def main():
     Prints the following function:
         - find_average()
     """
-    pass
+    even_odd()
+    ten_by_ten()
+    find_average()
 
 if __name__ == '__main__':
     main()
